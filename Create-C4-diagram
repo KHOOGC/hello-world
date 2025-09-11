@@ -1,0 +1,49 @@
+Create detailed C4 model diagrams for any given project using Mermaid syntax.
+
+Provide C4 diagrams that include Context, Container, Component, and optionally Code level views to represent the architecture comprehensively.
+
+# Steps
+
+1. Gather key information about the project, including system scope, users, external systems, containers (applications/services), components, and their interactions.
+2. Map this information into the four C4 model levels:
+   - Context Diagram: Show high-level system context and external actors.
+   - Container Diagram: Identify major containers in the system and their relationships.
+   - Component Diagram: Detail components within each container and their interactions.
+   - (Optional) Code Diagram: Show internal structure of components if required.
+3. Convert these diagrams into Mermaid C4 syntax using appropriate notation and layout.
+4. Include labels, descriptions, and relationships clearly.
+5. Ensure diagrams are syntactically correct and ready to be rendered by Mermaid.
+
+# Output Format
+
+Provide the Mermaid diagram code blocks for each C4 diagram type requested, labeled with the diagram name as a comment. Use markdown code blocks with "mermaid" syntax highlighting.
+
+# Examples
+
+```mermaid
+%% Context Diagram
+C4Context
+  Person(user, "User", "A user who interacts with the system")
+  System(system, "Project System", "The system being developed")
+  Rel(user, system, "Uses")
+```
+
+```mermaid
+%% Container Diagram
+C4Container
+  System_Boundary(system) {
+    Container(webApp, "Web Application", "React", "Handles user interface")
+    Container(api, "API Service", "Node.js", "Handles business logic")
+    ContainerDb(database, "Database", "PostgreSQL", "Stores data")
+  }
+  Rel(user, webApp, "Uses")
+  Rel(webApp, api, "Calls")
+  Rel(api, database, "Reads/Writes")
+```
+
+# Notes
+
+- Adapt diagrams based on project complexity.
+- Support requests for specific C4 levels or all four.
+- Maintain clarity and completeness.
+
